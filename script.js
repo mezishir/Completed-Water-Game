@@ -161,6 +161,8 @@ function createDrop() {
     if (isCollected(drop)) {
       score++;
       document.getElementById("score").textContent = score;
+  const dropSound = new Audio('sounds/drop.mp3');
+      dropSound.play();
       drop.remove();
       clearInterval(drop.checkInterval);
     }
@@ -203,7 +205,6 @@ function createBadDrop() {
   drop.checkInterval = setInterval(() => {
     if (!gameRunning) return;
     if (isCollected(drop)) {
-     
       const difficulty = document.getElementById("difficulty").value;
       if (difficulty === "hard") {
         score -= 2;
@@ -211,6 +212,8 @@ function createBadDrop() {
         score--;
       }
       document.getElementById("score").textContent = score;
+  const laughSound = new Audio('sounds/laugh.wav');
+      laughSound.play();
       drop.remove();
       clearInterval(drop.checkInterval);
     }
